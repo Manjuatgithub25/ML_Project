@@ -51,7 +51,57 @@ class ModelTrainer:
                         "AdaBoost Regressor": AdaBoostRegressor()
                     } 
             
-            model_report = evaluate_models(x_train, y_train, x_test, y_test, models)
+            params={
+                "Lasso": {
+                    'alpha':[0.001, 0.01, 0.1, 1, 10, 100]
+                },
+
+                "Ridge" : {
+                    'alpha': [0.001, 0.01, 0.1, 1, 10, 100]
+                },
+
+                "K-Neighbors Regressor" : {
+                    "n_neighbors" : [3, 5, 7, 9, 11, 15]
+                },           
+
+                "Decision Tree": {
+                    'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+                    # 'splitter':['best','random'],
+                    # 'max_features':['sqrt','log2'],
+                },
+
+                "Random Forest Regressor":{
+                    # 'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+                 
+                    # 'max_features':['sqrt','log2',None],
+                    'n_estimators': [8,16,32,64,128,256]
+                },
+
+                "Gradient Boosting":{
+                    # 'loss':['squared_error', 'huber', 'absolute_error', 'quantile'],
+                    'learning_rate':[.1,.01,.05,.001],
+                    'subsample':[0.6,0.7,0.75,0.8,0.85,0.9],
+                    # 'criterion':['squared_error', 'friedman_mse'],
+                    # 'max_features':['auto','sqrt','log2'],
+                    'n_estimators': [8,16,32,64,128,256]
+                },
+
+                "Linear Regression":{},
+                
+                "XGBRegressor":{
+                    'learning_rate':[.1,.01,.05,.001],
+                    'n_estimators': [8,16,32,64,128,256]
+                },
+
+                "AdaBoost Regressor":{
+                    'learning_rate':[.1,.01,0.5,.001],
+                    # 'loss':['linear','square','exponential'],
+                    'n_estimators': [8,16,32,64,128,256]
+                }
+                
+            }
+            
+            model_report = evaluate_models(x_train, y_train, x_test, y_test, models, params)
 
              ## To get best model score from dict
             best_model_score = max(sorted(model_report.values()))
