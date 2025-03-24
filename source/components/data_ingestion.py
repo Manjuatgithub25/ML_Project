@@ -41,7 +41,6 @@ class DataIngestion:
         except Exception as e:
             raise CustomException(e, sys)
 
-ingest_data = DataIngestion()
-print(ingest_data.data_ingestion())
+
 
         

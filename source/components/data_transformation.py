@@ -121,11 +121,6 @@ class DataTransformation:
             raise CustomException(e,sys)
         
 
-if __name__ == "__main__":
-    ingest_data = DataIngestion()
-    _, train_data, test_data = ingest_data.data_ingestion() 
 
-    data_transformer = DataTransformation()
-    data_transformer.data_transformation(train_data, test_data)
         
     
