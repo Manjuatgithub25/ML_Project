@@ -1,0 +1,3 @@
+[2025-03-24 18:07:15,703] 20 INFO logger Data ingestion has started
+[2025-03-24 18:07:15,706] 25 INFO logger Read the data as dataframe
+[2025-03-24 18:07:15,717] 34 INFO logger Data split has been performed and files are stored
