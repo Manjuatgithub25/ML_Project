@@ -4,7 +4,7 @@ from logger import logger
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-from source.components.exception import CustomException
+from exception import CustomException
 
 @dataclass
 class DataIngestionConfig:
